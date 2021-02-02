@@ -1,12 +1,12 @@
 # it262-project2-group1
 IT262 Project 2 Branch, Pull, Merge, Repeat - Group 1 
 
-Members:
+Members (in intitial order):
 
-Joon Wheeler
-Program: Database Development
+1) Ti Hall
+        Program: Web & Database Development
 
-Ti Hall
+2) Joon Wheeler
+        Program: Database Development
 
-Christopher Yip
-
+3) Christopher Yip
