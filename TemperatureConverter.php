@@ -17,7 +17,7 @@ if(empty($_POST['inputTemp'])){
 }else{
 
     if (is_numeric($_POST['inputTemp']) == FALSE) {
-        $errorMsg .= "<p>Only numbers are not allowed. <br>Please enter a number.</p>";
+        $errorMsg .= "<p>Only numbers are allowed. <br>Please enter a number.</p>";
     }else {
         $inputTemp = $_POST['inputTemp'];
 
