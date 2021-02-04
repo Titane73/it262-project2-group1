@@ -1,5 +1,5 @@
 <?php 
-// index.php
+// TemperatureConverter.php
 
 // ************* Variables *************
 $errorMsg = "";
