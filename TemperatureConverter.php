@@ -45,7 +45,7 @@ if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvC') {
     $userScale = "Fahrenheit";
     $endScale = "Celsius";
 
-    $newTemp = (($inputTemp - 32)* (5/9));
+    $newTemp = (($inputTemp - 32) * (5/9));
 
 } 
 
@@ -55,7 +55,7 @@ if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvK') {
     $userScale = "Fahrenheit";
     $endScale = "Kelvin";
 
-    $newTemp = (($inputTemp - 32)* (5/9) + 273.15);
+    $newTemp = (($inputTemp - 32) * (5/9) + 273.15);
 
 } 
 
