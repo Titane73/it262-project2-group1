@@ -15,15 +15,15 @@ $newTemp = (float)"";
 if(empty($_POST['userTemp'])){
     $errorMsg .= "<p>Please enter a starting temperature.</p>";
 }else{
-    if (is_numeric($_POST['userTemp']) == FALSE) {
-        $errorMsg .= "<p>Only numbers are not allowed. <br>Please enter a number.</p>";
-    }else {
+    if(is_numeric($_POST['userTemp']) == FALSE) {
+        $errorMsg .= "<p>Only numbers are allowed. <br>Please enter a number.</p>";
+    }else{
         $userTemp = $_POST['userTemp'];
     }
 }
 
-
-// Checks if Starscel has been set. If not, appends msg to errorMsg.
+// ************* CHECK ISSET *************
+// Checks if StartScale has been set. If not, appends msg to errorMsg.
 if(isset($_POST['StartScale'])){
     $StartScale = $_POST['StartScale'];
 }else{
@@ -42,7 +42,7 @@ if(isset($_POST['ConvScale'])){
 if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvC') {
     $userScale = "Fahrenheit";
     $endScale = "Celsius";
-    $newTemp = (($userTemp - 32)* (5/9));
+    $newTemp = (($userTemp - 32) * (5/9));
 } 
 
 
@@ -50,7 +50,7 @@ if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvC') {
 if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvK') {
     $userScale = "Fahrenheit";
     $endScale = "Kelvin";
-    $newTemp = (($userTemp - 32)* (5/9) + 273.15);
+    $newTemp = (($userTemp - 32) * (5/9) + 273.15);
 } 
 
 
@@ -74,7 +74,7 @@ if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvK') {
 if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvF') {
     $userScale = "Kelvin";
     $endScale = "Fahrenheit";
-    $newTemp = (($userTemp - 273.15)* (9/5) + 32);
+    $newTemp = (($userTemp - 273.15) * (9/5) + 32);
 } 
 
 
@@ -85,10 +85,10 @@ if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvC') {
     $newTemp = ($userTemp - 273.15);
 } 
 
-
+// ************* CHECK CONVERSION UNITS *************
 // Checks to see if starting and conversion scale are the same. 
 // *****  Not working on it's own... only displays with other errors  *****
 if($_POST['StartScale'] == $_POST['ConvScale']){
-    $errorMsg .= "<p>The starting and conversion scales cannot be the same. </p>";
+    $errorMsg .= "<p>The starting and conversion scales cannot be the same.</p>";
 }
 ?>
