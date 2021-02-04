@@ -3,7 +3,7 @@
 
 // ************* Variables *************
 $errorMsg = "";
-$userTemp = (float)"";
+$inputTemp = (float)"";
 $userScale = "";
 $endScale = "";
 $newTemp = (float)"";
@@ -11,14 +11,16 @@ $newTemp = (float)"";
 
 // ************* Error Checking *************
 // Used .= to append each error to the variable, so one can see a "list" errors that apply.
-// First checks if userTemp is an empty string. If so, appends msg to errorMsg.
-if(empty($_POST['userTemp'])){
+// First checks if inputTemp is an empty string. If so, appends msg to errorMsg.
+if(empty($_POST['inputTemp'])){
     $errorMsg .= "<p>Please enter a starting temperature.</p>";
 }else{
-    if(is_numeric($_POST['userTemp']) == FALSE) {
-        $errorMsg .= "<p>Only numbers are allowed. <br>Please enter a number.</p>";
-    }else{
-        $userTemp = $_POST['userTemp'];
+
+    if (is_numeric($_POST['inputTemp']) == FALSE) {
+        $errorMsg .= "<p>Only numbers are not allowed. <br>Please enter a number.</p>";
+    }else {
+        $inputTemp = $_POST['inputTemp'];
+
     }
 }
 
@@ -42,7 +44,9 @@ if(isset($_POST['ConvScale'])){
 if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvC') {
     $userScale = "Fahrenheit";
     $endScale = "Celsius";
-    $newTemp = (($userTemp - 32) * (5/9));
+
+    $newTemp = (($inputTemp - 32)* (5/9));
+
 } 
 
 
@@ -50,7 +54,9 @@ if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvC') {
 if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvK') {
     $userScale = "Fahrenheit";
     $endScale = "Kelvin";
-    $newTemp = (($userTemp - 32) * (5/9) + 273.15);
+
+    $newTemp = (($inputTemp - 32)* (5/9) + 273.15);
+
 } 
 
 
@@ -58,7 +64,7 @@ if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvK') {
 if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvF') {
     $userScale = "Celsius";
     $endScale = "Fahrenheit";
-    $newTemp = (($userTemp * 9/5) + 32);
+    $newTemp = (($inputTemp * 9/5) + 32);
 } 
 
 
@@ -66,7 +72,7 @@ if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvF') {
 if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvK') {
     $userScale = "Celsius";
     $endScale = "Kelvin";
-    $newTemp = ($userTemp + 273.15);  
+    $newTemp = ($inputTemp + 273.15);  
 } 
 
 
@@ -74,7 +80,9 @@ if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvK') {
 if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvF') {
     $userScale = "Kelvin";
     $endScale = "Fahrenheit";
-    $newTemp = (($userTemp - 273.15) * (9/5) + 32);
+
+    $newTemp = (($inputTemp - 273.15)* (9/5) + 32);
+
 } 
 
 
@@ -82,7 +90,7 @@ if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvF') {
 if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvC') {
     $userScale = "Kelvin";
     $endScale = "Celsius";
-    $newTemp = ($userTemp - 273.15);
+    $newTemp = ($inputTemp - 273.15);
 } 
 
 // ************* CHECK CONVERSION UNITS *************
