@@ -40,7 +40,8 @@ if(isset($_POST['ConvScale'])){
 
 
 // ************* CONVERSIONS *************
-// Fahrenheit to Celsius
+
+// Fahrenheit converted to Celsius
 if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvC') {
     $userScale = "Fahrenheit";
     $endScale = "Celsius";
@@ -50,7 +51,7 @@ if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvC') {
 } 
 
 
-// Fahrenheit to Kelvin
+// Fahrenheit converted to Kelvin
 if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvK') {
     $userScale = "Fahrenheit";
     $endScale = "Kelvin";
@@ -60,7 +61,7 @@ if ($_POST['StartScale'] == 'StartF' && $_POST['ConvScale'] == 'ConvK') {
 } 
 
 
-// Celsius to Fahrenheit
+// Celsius converted to Fahrenheit
 if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvF') {
     $userScale = "Celsius";
     $endScale = "Fahrenheit";
@@ -68,7 +69,7 @@ if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvF') {
 } 
 
 
-// Celsius to Kelvin
+// Celsius converted to Kelvin
 if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvK') {
     $userScale = "Celsius";
     $endScale = "Kelvin";
@@ -76,7 +77,7 @@ if ($_POST['StartScale'] == 'StartC' && $_POST['ConvScale'] == 'ConvK') {
 } 
 
 
-// Kelvin to Fahrenheit
+// Kelvin converted to Fahrenheit
 if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvF') {
     $userScale = "Kelvin";
     $endScale = "Fahrenheit";
@@ -86,7 +87,7 @@ if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvF') {
 } 
 
 
-// Kelvin to Celsius
+// Kelvin converted to Celsius
 if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvC') {
     $userScale = "Kelvin";
     $endScale = "Celsius";
@@ -98,5 +99,13 @@ if ($_POST['StartScale'] == 'StartK' && $_POST['ConvScale'] == 'ConvC') {
 // *****  Not working on it's own... only displays with other errors  *****
 if($_POST['StartScale'] == $_POST['ConvScale']){
     $errorMsg .= "<p>The starting and conversion scales cannot be the same.</p>";
+}
+
+// ************* test print *************
+// Without a form and html, this should fire all errors every time it's ran.
+if ($errorMsg != "") {
+    echo $errorMsg;
+    echo "<p>Please, try again.</p>";
+                    }
 }
 ?>
